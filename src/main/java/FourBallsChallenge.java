@@ -1,9 +1,10 @@
 import processing.core.PApplet;
 
 public class FourBallsChallenge extends PApplet{
-    int x = 0;
+
     public static final int WIDTH = 640;
     public static final int HEIGHT = 400;
+    public static final int RADIUS = 10;
 
     public static void main(String[] args) {
         PApplet.main("FourBallsChallenge" , args);
@@ -20,26 +21,15 @@ public class FourBallsChallenge extends PApplet{
     }
     @Override
     public void draw(){
-        //addBg();
         drawEllipse();
     }
-    int x1 = 0;
-    int x2 = 0;
-    int x3 = 0;
-    int x4 = 0;
+
     private void drawEllipse() {
-        ellipse(x1, HEIGHT/5 , 10 , 10);
-        x1++;
-        ellipse(x2, 2*(HEIGHT/5) , 10 , 10);
-        x2+=2;
-        ellipse(x3 , 3*(HEIGHT/5) , 10 , 10);
-        x3+=3;
-        ellipse(x4 , 4*(HEIGHT/5) , 10 , 10);
-        x4+=4;
 
+        int x = 0;
+        for(int i = 1 ; i<=4 ; i++){
+            ellipse(x+=i, i*(HEIGHT/5) , RADIUS, RADIUS);
+        }
     }
 
-    private void addBg() {
-        background(234);
-    }
 }
